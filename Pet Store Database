@@ -1,0 +1,24 @@
+---pet store items and inventory and location
+CREATE TABLE pet_store (id INTEGER PRIMARY KEY, item TEXT, inventory INTEGER, price INTEGER, aisle INTEGER );
+
+INSERT INTO pet_store VALUES (1, "dog tag", 200, 5, 2);
+INSERT INTO pet_store VALUES (2, "water bowl", 50, 6, 3); 
+INSERT INTO pet_store VALUES (3, "food dish", 50, 6, 3);
+INSERT INTO pet_store VALUES (4, "collar", 200, 10, 2);
+INSERT INTO pet_store VALUES (5, "harness", 50, 15, 2);
+INSERT INTO pet_store VALUES (6, "leash", 25, 8, 2);
+INSERT INTO pet_store VALUES (7, "bags", 500, 2, 2);
+INSERT INTO pet_store VALUES (8, "treats", 400, 11, 4);
+INSERT INTO pet_store VALUES (9, "chicken feet", 12, 12, 4);
+INSERT INTO pet_store VALUES (10, "pig ears", 12, 12, 4);
+INSERT INTO pet_store VALUES (11, "cbd", 15, 5, 4);
+INSERT INTO pet_store VALUES (12, "dog food", 100, 75, 5);
+INSERT INTO pet_store VALUES (13, "tennis ball", 50, 5, 1);
+INSERT INTO pet_store VALUES (14, "dog bed", 5, 50, 1);
+INSERT INTO pet_store VALUES (15, "rope", 30, 3, 1);
+
+---ordered by price
+SELECT * FROM pet_store order by price;
+
+---total inventory
+SELECT sum (inventory) FROM pet_store
