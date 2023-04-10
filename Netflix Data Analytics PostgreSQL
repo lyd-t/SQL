@@ -1,0 +1,46 @@
+## Netflix Data Analytics ##
+
+
+SELECT
+people.show_id, people.cast, titles.title, titles.release_year, titles.type
+ from "CharlotteChaze/BreakIntoTech"."netflix_people" people
+
+LEFT OUTER JOIN "CharlotteChaze/BreakIntoTech"."netflix_titles_info" titles
+
+ON people.show_id = titles.show_id limit 15;
+
+-- movie title quantity 
+
+SELECT count (*) FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info" where type = 'Movie';
+
+-- 6131 movie titles 
+
+-- most recent addition 
+
+SELECT max(date(date_added)) from "CharlotteChaze/BreakIntoTech"."netflix_titles_info";
+
+SELECT date_added from "CharlotteChaze/BreakIntoTech"."netflix_titles_info" order by date_added desc;
+
+-- September 25, 2021 
+
+--ALL shows in aplhabetical order
+
+SELECT title from "CharlotteChaze/BreakIntoTech"."netflix_titles_info" order by title asc;
+
+-- Director for Bright Star 
+
+SELECT
+director
+from "CharlotteChaze/BreakIntoTech"."netflix_titles_info" titles
+
+LEFT OUTER JOIN "CharlotteChaze/BreakIntoTech"."netflix_people" people
+
+ON titles.show_id = people.show_id where titles.title = 'Bright Star';
+
+-- Jane Campion 
+
+-- Oldest movie in database and year 
+
+SELECT title, release_year from "CharlotteChaze/BreakIntoTech"."netflix_titles_info" where type = 'Movie' order by release_year asc limit 1;
+
+-- Prelude to War 
